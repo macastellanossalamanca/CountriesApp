@@ -27,12 +27,13 @@ struct CountryDetailView: View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 16) {
                 flagSection
+                    .padding(.bottom, 16)
                 InfoRowBlock(items: regionItems)
                 
                 contentSection
             }
             .padding(.horizontal, sidePadding)
-            .padding(.bottom, 24)
+            .padding(.bottom, 16)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {

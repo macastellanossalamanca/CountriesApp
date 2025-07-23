@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		BED4E3FE2E308714005CCE07 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = BED4E3FD2E308714005CCE07 /* ViewInspector */; };
+		BED64EB22E309C1900E7321D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BED64EB12E309C1900E7321D /* Kingfisher */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		BE0FE5222E2D7E21005B6518 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BED64EB22E309C1900E7321D /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BED4E3FE2E308714005CCE07 /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +119,7 @@
 			);
 			name = "Countries App";
 			packageProductDependencies = (
+				BED64EB12E309C1900E7321D /* Kingfisher */,
 			);
 			productName = "Countries App";
 			productReference = BE0FE50F2E2D7E1F005B6518 /* Countries App.app */;
@@ -158,6 +166,7 @@
 			);
 			name = "Countries AppUITests";
 			packageProductDependencies = (
+				BED4E3FD2E308714005CCE07 /* ViewInspector */,
 			);
 			productName = "Countries AppUITests";
 			productReference = BE0FE52B2E2D7E21005B6518 /* Countries AppUITests.xctest */;
@@ -195,6 +204,10 @@
 			);
 			mainGroup = BE0FE5062E2D7E1F005B6518;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				BEFE72572E3085A800402C85 /* XCRemoteSwiftPackageReference "ViewInspector" */,
+				BE751EE22E309B2C00BEAE10 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = BE0FE5102E2D7E1F005B6518 /* Products */;
 			projectDirPath = "";
@@ -552,6 +565,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BE751EE22E309B2C00BEAE10 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.5.0;
+			};
+		};
+		BEFE72572E3085A800402C85 /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BED4E3FD2E308714005CCE07 /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BEFE72572E3085A800402C85 /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
+		};
+		BED64EB12E309C1900E7321D /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE751EE22E309B2C00BEAE10 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BE0FE5072E2D7E1F005B6518 /* Project object */;
 }

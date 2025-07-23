@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct CountryListView: View {
     @ObservedObject var coordinator: AppCoordinator
@@ -43,12 +44,10 @@ struct CountryRow: View {
 
     var body: some View {
         HStack (alignment: .top) {
-            AsyncImage(url: URL(string: country.flags.png)) { image in
-                image.resizable().scaledToFit()
-            } placeholder: {
-                ProgressView()
-            }
-            .frame(width: 100, height: 60)
+            KFImage(URL(string: country.flags.png))
+                .resizable()
+                .scaledToFit()
+                .frame(width: 100, height: 60)
             
             VStack(alignment: .leading) {
                 Text(country.name.common).font(.headline)
