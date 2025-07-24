@@ -18,9 +18,10 @@ iOS application built with Swift and SwiftUI, showcasing a modular and testable 
 - **Local Storage:** Core Data
 - **Networking:** `URLSession` via abstracted service layer
 - **Logging:** Custom Logger using `os.Logger` to be aware of every stage of the app
-- **Testing:** XCTest with unit and integration tests
+- **Testing:** XCTest with unit and view inspector for swiftUI tests
 - **Async Handling:** Native `async/await`
 - **Favorites:** Locally persisted using Core Data
+- **Image cache:** Uses SPM in order to handle third party libraries, such as KingFisher for image handling, and ViewInspector for SwiftUI Testing
 
 ---
 
