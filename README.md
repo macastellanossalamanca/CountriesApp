@@ -9,6 +9,9 @@ iOS application built with Swift and SwiftUI, showcasing a modular and testable 
 |---|---|---|---|
 | <img width="448" height="963" alt="Captura de pantalla 2025-07-22 a la(s) 2 54 14 p m" src="https://github.com/user-attachments/assets/d4767037-a37c-434d-9a8d-2ffde145b787" /> | <img width="445" height="953" alt="Captura de pantalla 2025-07-22 a la(s) 2 55 54 p m" src="https://github.com/user-attachments/assets/05ef0acf-7824-41c5-88b1-dd6ac6f3ac72" /> | <img width="446" height="959" alt="Captura de pantalla 2025-07-22 a la(s) 2 56 24 p m" src="https://github.com/user-attachments/assets/b7cfa35a-8b46-48e9-8e2e-ab9bd39a247e" /> | <img width="446" height="965" alt="Captura de pantalla 2025-07-22 a la(s) 2 57 16 p m" src="https://github.com/user-attachments/assets/491f6153-b195-4c7d-a068-82c1051fe942" /> |
 
+## ✔️ Business Logic Testing
+<img width="870" height="208" alt="Captura de pantalla 2025-07-23 a la(s) 11 53 24 p m" src="https://github.com/user-attachments/assets/ef0e9ed3-d10d-4254-adbb-caa07e086900" />
+
 
 ## 🚀 Tech Stack
 
