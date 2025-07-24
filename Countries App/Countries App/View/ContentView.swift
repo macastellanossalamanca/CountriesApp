@@ -7,7 +7,6 @@ struct ContentView: View {
     @StateObject private var viewModel = DIManager.shared.getCountryListViewModel()
     @State private var selectedTab = 0
 
-    // Computed property for dynamic navigation title based on selected tab
     private var navigationTitle: String {
         selectedTab == 1 ? "Saved" : "Search"
     }
@@ -32,15 +31,14 @@ struct ContentView: View {
                     tag: 1
                 )
             }
-            // Navigation logic encapsulated here
             .navigationDestination(for: CountryListItem.self) { country in
-                CountryDetailView(coordinator: coordinator, country: country)
+                CountryDetailView(country: country)
             }
             .navigationTitle(navigationTitle)
             .navigationBarTitleDisplayMode(.inline)
         }
         .searchable(text: $viewModel.searchText, prompt: "Search")
-        .environmentObject(coordinator) // coordinator injected globally
+        .environmentObject(coordinator)
     }
 
     // MARK: - Factory method for tabs
@@ -51,12 +49,11 @@ struct ContentView: View {
         title: String,
         tag: Int
     ) -> some View {
-        CountryListView(coordinator: coordinator, viewModel: viewModel)
+        CountryListView(viewModel: viewModel)
             .onAppear {
                 viewModel.showFavoritesOnly = showFavoritesOnly
             }
             .onDisappear {
-                // Restauramos el estado solo si fue modificado
                 if viewModel.showFavoritesOnly != !showFavoritesOnly {
                     viewModel.showFavoritesOnly = false
                 }

@@ -67,8 +67,8 @@ struct InfoGridSection: View {
                         alignment == .center ? .center : .leading
                     )
                     .foregroundColor(.secondary)
-                    .lineLimit(maxLines)                    // <-- truncamiento
-                    .truncationMode(.tail)                  // <-- con “…”
+                    .lineLimit(maxLines)
+                    .truncationMode(.tail)
             }
             .frame(maxWidth: .infinity, minHeight: blockHeight)
             .padding()
@@ -96,7 +96,7 @@ struct InfoGridSection: View {
                         .padding(5)
                         .overlay(
                             Circle()
-                                .stroke(Color.black, lineWidth: 0.5)       // contorno circular
+                                .stroke(Color.black, lineWidth: 0.5)
                         )
                     Text("RIGHT")
                         .font(.caption)

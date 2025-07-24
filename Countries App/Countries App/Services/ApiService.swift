@@ -69,8 +69,7 @@ final class APIService: APIServiceProtocol {
     }
 
     // MARK: - Private Helpers
-
-    /// Realiza una petición y valida la respuesta HTTP.
+    
     private func performRequest(url: URL) async throws -> Data {
         let (data, response) = try await session.data(from: url)
 

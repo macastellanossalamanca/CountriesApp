@@ -12,7 +12,7 @@ enum AppLogger {
     
     private static let subsystem = Bundle.main.bundleIdentifier ?? "com.countries.app"
 
-    // MARK: - Categorías comunes
+    // MARK: - Categorías
 
     static let lifecycle = Logger(subsystem: subsystem, category: "🧬Lifecycle")
     static let network = Logger(subsystem: subsystem, category: "🌐Networking")
@@ -22,9 +22,4 @@ enum AppLogger {
     static let ui = Logger(subsystem: subsystem, category: "🖼️UI")
     static let error = Logger(subsystem: subsystem, category: "❌Error")
     static let di = Logger(subsystem: subsystem, category: "🛠️DI")
-
-    /// Para casos personalizados: puedes crear una categoría al vuelo
-    static func custom(category: String) -> Logger {
-        Logger(subsystem: subsystem, category: category)
-    }
 }

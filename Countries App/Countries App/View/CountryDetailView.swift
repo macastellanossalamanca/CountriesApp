@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct CountryDetailView: View {
-    @EnvironmentObject var coordinator: AppCoordinator
     @StateObject private var viewModel: CountryDetailViewModel
     let country: CountryListItem
     
-    init(coordinator: AppCoordinator, country: CountryListItem) {
+    init(country: CountryListItem) {
         _viewModel = StateObject(wrappedValue: DIManager.shared.makeCountryDetailViewModel())
         self.country = country
     }

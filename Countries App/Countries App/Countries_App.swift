@@ -18,7 +18,7 @@ struct Countries_App: App {
         }
         .onChange(of: scenePhase) { oldPhase, newPhase in
             if newPhase == .inactive {
-                dimanager.saveContext() // Solo para asegurar consistencia al cerrar
+                dimanager.saveContext() 
             }
         }
     }
