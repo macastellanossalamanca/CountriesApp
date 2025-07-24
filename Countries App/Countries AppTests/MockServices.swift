@@ -33,6 +33,10 @@ final class MockAPIService: APIServiceProtocol {
 }
 
 final class MockPersistenceService: PersistenceServiceProtocol {
+    
+    func saveContext() {
+    }
+    
     var favorites: [CountryFavorite] = []
     
     func addFavorite(country: CountryListItem) {

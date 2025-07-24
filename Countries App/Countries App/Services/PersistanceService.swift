@@ -12,6 +12,7 @@ protocol PersistenceServiceProtocol {
     func removeFavorite(id: String)
     func isFavorite(id: String) -> Bool
     func fetchFavorites() -> [CountryFavorite]
+    func saveContext()
 }
 
 final class PersistenceService: PersistenceServiceProtocol {
@@ -68,6 +69,10 @@ final class PersistenceService: PersistenceServiceProtocol {
             return []
         }
     }
+    
+    func saveContext() {
+        CoreDataManager.shared.saveContext()
+    }
 
     // MARK: - Private Helpers
 
@@ -76,15 +81,6 @@ final class PersistenceService: PersistenceServiceProtocol {
         request.predicate = NSPredicate(format: "id == %@", id)
         request.fetchLimit = 1
         return try? context.fetch(request).first
-    }
-
-    private func saveContext() {
-        guard context.hasChanges else { return }
-        do {
-            try context.save()
-        } catch {
-            AppLogger.error.error("❌ Error saving context: \(error.localizedDescription)")
-        }
     }
 }
 

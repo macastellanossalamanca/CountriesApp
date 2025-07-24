@@ -38,7 +38,7 @@ final class CountryDetailViewModelTests: XCTestCase {
         )
         apiMock.countryDetailToReturn = detail
 
-        let countryListVM = CountryListViewModel(apiService: apiMock, persistenceService: persistenceMock, context: viewContext)
+        let countryListVM = CountryListViewModel(apiService: apiMock, persistenceService: persistenceMock)
         let detailVM = CountryDetailViewModel(apiService: apiMock, countryListViewModel: countryListVM)
 
         await detailVM.fetchCountryDetail(name: "Argentina")
@@ -50,7 +50,7 @@ final class CountryDetailViewModelTests: XCTestCase {
     func test_CountryDetailViewModel_fetchFailure() async {
         apiMock.shouldThrowError = true
 
-        let countryListVM = CountryListViewModel(apiService: apiMock, persistenceService: persistenceMock, context: viewContext)
+        let countryListVM = CountryListViewModel(apiService: apiMock, persistenceService: persistenceMock)
         let detailVM = CountryDetailViewModel(apiService: apiMock, countryListViewModel: countryListVM)
 
         await detailVM.fetchCountryDetail(name: "FakeLand")

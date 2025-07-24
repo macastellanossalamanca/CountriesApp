@@ -17,13 +17,11 @@ final class CountryListViewModel: ObservableObject {
 
     private let apiService: APIServiceProtocol
     private let persistenceService: PersistenceServiceProtocol
-    private let context: NSManagedObjectContext
     private var hasFetched = false
 
-    init(apiService: APIServiceProtocol, persistenceService: PersistenceServiceProtocol, context: NSManagedObjectContext) {
+    init(apiService: APIServiceProtocol, persistenceService: PersistenceServiceProtocol) {
         self.apiService = apiService
         self.persistenceService = persistenceService
-        self.context = context
     }
 
     var filteredCountries: [CountryListItem] {
@@ -80,14 +78,7 @@ final class CountryListViewModel: ObservableObject {
             AppLogger.viewModel.info("🗑️ Removed favorite: \(updatedCountry.name.common)")
         }
 
-        do {
-            if context.hasChanges {
-                try context.save()
-                AppLogger.viewModel.debug("💾 Context saved after favorite toggle")
-            }
-        } catch {
-            AppLogger.viewModel.error("❌ Failed to save context: \(error.localizedDescription)")
-        }
+        persistenceService.saveContext()
     }
 }
 

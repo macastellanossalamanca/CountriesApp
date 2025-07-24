@@ -16,8 +16,7 @@ final class DIManager {
         AppLogger.di.debug("Inicializando CountryListViewModel desde DIManager")
         return CountryListViewModel(
             apiService: makeAPIService(),
-            persistenceService: makePersistenceService(),
-            context: CoreDataManager.shared.context
+            persistenceService: makePersistenceService()
         )
     }()
 

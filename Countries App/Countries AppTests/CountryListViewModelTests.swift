@@ -33,8 +33,7 @@ final class CountryListViewModelTests: XCTestCase {
 
         let viewModel = CountryListViewModel(
             apiService: apiMock,
-            persistenceService: persistenceMock,
-            context: viewContext
+            persistenceService: persistenceMock
         )
 
         await viewModel.fetchCountries()
@@ -49,8 +48,7 @@ final class CountryListViewModelTests: XCTestCase {
 
         let viewModel = CountryListViewModel(
             apiService: apiMock,
-            persistenceService: persistenceMock,
-            context: viewContext
+            persistenceService: persistenceMock
         )
 
         await viewModel.fetchCountries()
@@ -68,8 +66,7 @@ final class CountryListViewModelTests: XCTestCase {
 
         let viewModel = CountryListViewModel(
             apiService: apiMock,
-            persistenceService: persistenceMock,
-            context: viewContext
+            persistenceService: persistenceMock
         )
         viewModel.countries = [country]
 
