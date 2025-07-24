@@ -53,11 +53,6 @@ struct ContentView: View {
             .onAppear {
                 viewModel.showFavoritesOnly = showFavoritesOnly
             }
-            .onDisappear {
-                if viewModel.showFavoritesOnly != !showFavoritesOnly {
-                    viewModel.showFavoritesOnly = false
-                }
-            }
             .tabItem {
                 Image(systemName: icon)
                 Text(title)

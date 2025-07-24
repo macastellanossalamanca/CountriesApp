@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct CountryDetailView: View {
     @StateObject private var viewModel: CountryDetailViewModel
@@ -52,18 +53,8 @@ struct CountryDetailView: View {
     
     private var flagSection: some View {
         ZStack(alignment: .bottomLeading) {
-            AsyncImage(url: URL(string: country.flags.png)) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: .infinity, idealHeight: 220)
-                    .clipped()
-            } placeholder: {
-                Rectangle()
-                    .fill(Color.gray.opacity(0.2))
-                    .frame(height: 220)
-                    .overlay(ProgressView())
-            }
+            KFImage(URL(string: country.flags.png))
+                .resizable().scaledToFit().frame(height: 220)
             
             VStack(alignment: .center, spacing: 4) {
                 Text(country.name.common)

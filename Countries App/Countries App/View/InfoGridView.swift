@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct InfoGridSection: View {
     let detail: CountryDetail
@@ -121,15 +122,9 @@ struct InfoGridSection: View {
         var body: some View {
             VStack(spacing: 6) {
                 Text("Coat of Arms").font(.headline)
-                if let url = urlString.flatMap(URL.init) {
-                    AsyncImage(url: url) { img in
-                        img
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 50)
-                    } placeholder: {
-                        ProgressView()
-                    }
+                if let urlString {
+                    KFImage(URL(string: urlString))
+                        .resizable().scaledToFit().frame(height: 50)
                 } else {
                     Image(systemName: "shield")
                         .font(.largeTitle)
