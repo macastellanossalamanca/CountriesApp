@@ -3,7 +3,7 @@ import SwiftUI
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var coordinator = AppCoordinator()
+    @StateObject private var coordinator = DIManager.shared.makeAppCoordinator()
     @StateObject private var viewModel = DIManager.shared.getCountryListViewModel()
     @State private var selectedTab = 0
 

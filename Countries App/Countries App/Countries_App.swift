@@ -15,7 +15,6 @@ struct Countries_App: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, dimanager.context)
         }
         .onChange(of: scenePhase) { oldPhase, newPhase in
             if newPhase == .inactive {

@@ -12,47 +12,19 @@ import CoreData
 final class DIManager {
     static let shared = DIManager()
 
-    private let persistentContainer: NSPersistentContainer
-
-    /// Contexto principal del contenedor persistente (usado por los servicios de persistencia y vistas)
-    var context: NSManagedObjectContext {
-        persistentContainer.viewContext
-    }
-
     private lazy var countryListViewModel: CountryListViewModel = {
         AppLogger.di.debug("Inicializando CountryListViewModel desde DIManager")
         return CountryListViewModel(
             apiService: makeAPIService(),
             persistenceService: makePersistenceService(),
-            context: context
+            context: CoreDataManager.shared.context
         )
     }()
 
-    private init() {
-        persistentContainer = NSPersistentContainer(name: "Countries_App")
-
-        persistentContainer.loadPersistentStores { _, error in
-            if let error = error {
-                AppLogger.di.error("Error cargando el stack de Core Data: \(error.localizedDescription)")
-                fatalError("Core Data failed to load: \(error.localizedDescription)")
-            } else {
-                AppLogger.di.info("Stack de Core Data cargado exitosamente.")
-            }
-        }
-    }
+    private init() {}
 
     func saveContext() {
-        guard context.hasChanges else {
-            AppLogger.di.debug("No hay cambios en el contexto, no es necesario guardar.")
-            return
-        }
-
-        do {
-            try context.save()
-            AppLogger.di.info("Contexto guardado exitosamente.")
-        } catch {
-            AppLogger.di.error("Fallo al guardar el contexto: \(error.localizedDescription)")
-        }
+        CoreDataManager.shared.saveContext()
     }
 
     // MARK: - Factories
@@ -66,7 +38,7 @@ final class DIManager {
     /// Servicio de persistencia
     func makePersistenceService() -> PersistenceServiceProtocol {
         AppLogger.di.debug("Creando instancia de PersistenceService")
-        return PersistenceService(context: context)
+        return PersistenceService(context: CoreDataManager.shared.context)
     }
 
     /// Retorna una instancia compartida del `CountryListViewModel`
@@ -82,6 +54,10 @@ final class DIManager {
             apiService: makeAPIService(),
             countryListViewModel: getCountryListViewModel()
         )
+    }
+    
+    func makeAppCoordinator() -> AppCoordinator {
+        return AppCoordinator()
     }
 }
 
